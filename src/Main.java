@@ -3,4 +3,3 @@ public class Main {
         Vendedor vendedor1 = new Vendedor("Mateo Viera","Tecnologia",2850.75,8,92);
         vendedor1.mostrarResumen();
     }
-}
