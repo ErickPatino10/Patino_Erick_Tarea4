@@ -11,9 +11,9 @@ public class Vendedor {
     public Vendedor(String nombre, String area, double montoVendido, double porcentajeComision, double cumplimientoMeta) {
         this.nombre = nombre;
         this.area = area;
-        this.montoVendido = montoVendido;
-        this.porcentajeComision = porcentajeComision;
-        this.cumplimientoMeta = cumplimientoMeta;
+        setMontoVendido(montoVendido);
+        setPorcentajeComision(porcentajeComision);
+        setCumplimientoMeta(cumplimientoMeta);
     }
 
     public double getMontoVendido() {
@@ -21,7 +21,7 @@ public class Vendedor {
     }
 
     public void setMontoVendido(double montoVendido) {
-    if (montoVendido > 0)
+    if (montoVendido >= 0)
         this.montoVendido = montoVendido;
     else
         System.out.println("Monto invalido. No puede ser negativo");
@@ -52,12 +52,12 @@ public class Vendedor {
 
     //METODOS
 
-    public double calcularComicion(){
+    public double calcularComision(){
         return montoVendido * (porcentajeComision / 100);
     }
 
     public double calcularIngresoTotal(){
-        return montoVendido+calcularComicion();
+        return montoVendido+calcularComision();
     }
 
     public String obtenerEstadoCumplimiento(){
@@ -79,15 +79,15 @@ public class Vendedor {
     }
 
     void mostrarResumen(){
-        System.out.println("--- Reporte ---");
+        System.out.println("\n--- Reporte ---");
         System.out.println("Nombre: "+nombre);
         System.out.println("Area: "+area);
         System.out.println("Monto vendido: "+montoVendido);
-        System.out.println("Comision: "+calcularComicion());
+        System.out.println("Comision: "+calcularComision());
         System.out.println("Ingreso Total: "+calcularIngresoTotal());
         System.out.println("Estado: "+obtenerEstadoCumplimiento());
         System.out.println("Mensaje: "+mensajeDesempenio());
-
+        System.out.println("========================================");
     }
 
 }
